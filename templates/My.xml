@@ -1,0 +1,7 @@
+<templateSet group="My">
+  <template name="vdd" value="vdd" description="vdd" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+</templateSet>
