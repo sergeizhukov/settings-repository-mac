@@ -44,7 +44,7 @@
       <option name="HTML" value="true" />
     </context>
   </template>
-  <template name="vdd" value="\common\components\VarDumper::dump($END$);" description="VarDumper" toReformat="false" toShortenFQNames="true">
+  <template name="vdd" value="\app\components\VarDumper::dump($END$);" description="VarDumper" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="PHP" value="true" />
     </context>
@@ -74,7 +74,7 @@
       <option name="PHP" value="true" />
     </context>
   </template>
-  <template name="vdde" value="\common\components\VarDumper::dump($END$); exit;" description="VarDumper with EXIT" toReformat="false" toShortenFQNames="true">
+  <template name="vdde" value="\app\components\VarDumper::dump($END$); exit;" description="VarDumper with EXIT" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="PHP" value="true" />
     </context>
