@@ -1,7 +1,137 @@
 <templateSet group="My">
-  <template name="vdd" value="vdd" description="vdd" toReformat="false" toShortenFQNames="true">
+  <template name="vd" value="var_dump($END$);" description="var_dump" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="ajax" value="$.ajax({&#10;  type: 'POST',&#10;  url : '/media/ads/add',&#10;  data: {&#10;    'FD[adv_contract_type]':  $('#id input[type=radio]:checked').val(),&#10;    'FD[adv_type]':  $('#id select').val(),&#10;    'FD[adv_advertiser]':  $('#id input[name*=&quot;adv_advertiser&quot;]').val()&#10;  },&#10;  dataType: 'json',&#10;  success: function(res){&#10;    if(res.success)&#10;    {&#10;      alertBox(res.msg);&#10;    }&#10;    else&#10;    {&#10;      $.each( JSON.parse(res.msg), function( key, val )&#10;      {&#10;        $.notify(val.toString(), &quot;error&quot;);&#10;      });&#10;    }&#10;  }&#10;});" description="AJAX query" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="clog" value="console.log($END$);" description="Console log" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="widget" value="&lt;?=frontend\widgets\$END$::widget()?&gt;" description="Widget" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="eco" value="echo $END$;" description="'echo' statement" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="forea" value="&lt;?foreach($rows as $row):?&gt;&#10;  $END$&#10;&lt;?endforeach;?&gt;" description="FOR EACH" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="qw" value="&lt;?=$PARAMETERS$?&gt;$END$" description="&lt;?=?&gt;" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAMETERS" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="ifa" value="&lt;?if($first$):?&gt;$END$&lt;?endif;?&gt;" description="IF statement" toReformat="false" toShortenFQNames="true">
+    <variable name="first" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="vdd" value="\common\components\VarDumper::dump($END$);" description="VarDumper" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="freesql" value="$sql = &quot;SELECT *&quot;;&#10;$results = Yii::app()-&gt;db-&gt;createCommand($sql)-&gt;queryAll();" description="Free SQL Query" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="notify" value="$.notify(&quot;$END$&quot;, &quot;info&quot;);" description="Notify JS" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="getfd" value="$fd = \Yii::$app-&gt;request-&gt;post('fd');" description="Get Param FD" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="yiimail" value="\Yii::$app-&gt;mailer-&gt;compose('feedback', ['m' =&gt; $m])&#10;  -&gt;setFrom([\Yii::$app-&gt;settings-&gt;get('main.supportNoReplyEmail') =&gt; \Yii::$app-&gt;settings-&gt;get('main.supportName')])&#10;  -&gt;setTo(explode(',', \Yii::$app-&gt;settings-&gt;get('main.emails')))&#10;  -&gt;setSubject('Новый отзыв на '.$_SERVER[&quot;HTTP_HOST&quot;])&#10;  -&gt;send();" description="Yii Mailer" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="vde" value="var_dump($END$); exit;" description="var_dump with EXIT" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="vdde" value="\common\components\VarDumper::dump($END$); exit;" description="VarDumper with EXIT" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="notifyAdmin" value="$.niftyNoty({&#10;  type: 'success',&#10;  title: 'Системное сообщение',&#10;  icon: 'fa fa-info fa-lg',&#10;  message: '$END$',&#10;  container: 'floating',&#10;  timer: 5500&#10;});" description="Nifty Notify Admin JS" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+  <template name="qwe" value="&lt;?=$row-&gt;$PARAMETERS$;?&gt;$END$" description="&lt;?=$row-&gt;?&gt;" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAMETERS" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="ifae" value="&lt;?if($F$):?&gt;$S$&lt;?else:?&gt;$END$&lt;?endif;?&gt;" description="IF ELSE" toReformat="false" toShortenFQNames="true">
+    <variable name="F" expression="phpVar" defaultValue="" alwaysStopAt="true" />
+    <variable name="S" expression="phpVar" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="ajaxf" value="$('#regForm').ajaxForm(&#10;    {&#10;      dataType: 'json',&#10;      beforeSubmit: function(arr, $form, options) {&#10;&#10;        if(!arr[0].value || !arr[1].value || !arr[2].value || !arr[3].value || !isEmail(arr[2].value) || !$('#rules').prop('checked'))&#10;        {&#10;          $.notify(&quot;Ошибка заполнения&quot;, &quot;error&quot;);&#10;          return false;&#10;        }&#10;&#10;      },&#10;      success: function(res) {&#10;        if(res.success)&#10;        {&#10;          $.notify(&quot;Отправлено&quot;, &quot;success&quot;);&#10;          $('#enter').text('Регистрация завершена.');&#10;        }&#10;        else&#10;        {&#10;          $.notify(&quot;Ошибка регистрации&quot;, &quot;error&quot;);&#10;        }&#10;&#10;      }&#10;    }&#10;  );" description="AJAX query Form" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="yiifile" value="if( $file = UploadedFile::getInstanceByName('file') )&#10;{&#10;  $filenameOrig = Adobe::genName($file-&gt;getBaseName()).$file-&gt;getExtension();&#10;&#10;  $path = Yii::getAlias('@uploads/').$filenameOrig;&#10;&#10;  $file-&gt;saveAs($path);&#10;&#10;  $img = new SimpleImage($path);&#10;  $img-&gt;best_fit(1280, 768)-&gt;save($path);&#10;&#10;}&#10;" description="Yii Image" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="dateadd" value="$date = new DateTime(&quot;2015-02-02&quot;);&#10;$date-&gt;add(new DateInterval('P1D'));&#10;$date2 = $date-&gt;format('Y-m-d H:i:s');" description="Date Add" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="dat" value="\Yii::$app-&gt;formatter-&gt;asDate(new \DateTime($END$), 'long')" description="Date formatter" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="getid" value="$id = \Yii::$app-&gt;request-&gt;post('id');" description="Get Param ID" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="csrf" value="&lt;input type=&quot;hidden&quot; name=&quot;_csrf&quot; value=&quot;&lt;?=\Yii::$app-&gt;request-&gt;getCsrfToken()?&gt;&quot;&gt;" description="CSRF" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="dd" value="dd($END$);" description="laravel dump" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
     </context>
   </template>
 </templateSet>
